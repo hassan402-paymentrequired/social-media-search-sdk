@@ -1,0 +1,25 @@
+{
+    "name": "eagleworld/social-media-search",
+    "description": "a social media look up",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Eagleworld\\Search\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "codeWithMe",
+            "email": "codewithhassan.404.not.found@gmail.com"
+        },
+        {
+            "name": "stanley",
+            "email": "eagleworld@eagleworld.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "guzzlehttp/guzzle": "*"
+    }
+}
