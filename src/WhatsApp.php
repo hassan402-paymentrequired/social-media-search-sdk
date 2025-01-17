@@ -41,11 +41,13 @@ class WhatsApp extends HttpRequest
  *******/
     public function getUserProfileByNumber($number)
     {
+
+      $url = 'profile/' .$number;
       
         $this->setRequestOptions();
 
         try {
-          $result = $this->setHttpResponse(  $number, 'GET', [])->getResponse();
+          $result = $this->setHttpResponse($url, 'GET', [])->getResponse();
 
           return $result;
 
@@ -56,7 +58,21 @@ class WhatsApp extends HttpRequest
     }
 
 
-    
+    public function validateUserNumber($number) {
+
+      $url = 'exists/' .$number;
+
+      $this->setRequestOptions();
+
+      try {
+        $result = $this->setHttpResponse( $url, 'GET', [])->getResponse();
+
+        return $result;
+
+      }catch ( RequestException $e) {
+        echo 'Request failed' . $e->getMessage();
+      }
+    }
 
 
 

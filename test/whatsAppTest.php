@@ -9,5 +9,5 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $whatsApp = new WhatsApp();
 
 
-$response = $whatsApp->getUserProfileByNumber('+2349029178786');  
+$response = $whatsApp->validateUserNumber('+2349158464994');  
 print_r($response);
