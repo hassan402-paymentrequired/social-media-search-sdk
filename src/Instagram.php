@@ -43,13 +43,36 @@ class Instagram extends HttpRequest
       try {
        $result =  $this->setHttpResponse("get_info", 'POST', ["username" => $username])->getResponse();
 
-        return  $result;
+        return $result;
       } catch ( RequestException $e) {
         echo 'Request failed' . $e->getMessage();
       }
      catch (Exception $e) {
       echo 'Request failed' . $e->getMessage();
     }
+  }
+
+
+
+
+    /**
+     * Extracts the user ID from the response.
+     *
+     * @param array $result The response from the API
+     *
+     * @return string|null The user ID, or null if the request fails
+     *
+     * @throws Exception If the user ID is not found in the response
+     */
+
+  private function getUserIdFromResponse($result)
+  {
+      // Check if the necessary keys exist in the response
+      if (isset($result['response']['body']['data']['user']['id'])) {
+          return $result['response']['body']['data']['user']['id'];
+      } else {
+          throw new Exception('User ID not found in the response.');
+      }
   }
 
 
