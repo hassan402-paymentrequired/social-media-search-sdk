@@ -18,8 +18,8 @@ class Instagram extends HttpRequest
 
    public function __construct()
    {
+    
        $this->setApiUrl(config('instagram.api_url'));
-
        $this->additionalHeader = ['x-rapidapi-host' => config('instagram.x-rapidapi-host', ''), 'x-rapidapi-key' => config('instagram.x-rapidapi-key')];
       
   }
