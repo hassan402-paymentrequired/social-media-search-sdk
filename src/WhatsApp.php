@@ -16,10 +16,8 @@ class WhatsApp extends HttpRequest
  */
 
 
-
      public function  __construct()
      {
-
 
           $this->setApiUrl(config('whatsApp.api_url'));  
 
@@ -42,7 +40,7 @@ class WhatsApp extends HttpRequest
     public function getUserProfileByNumber($number)
     {
 
-      $url = 'profile/' .$number;
+      $url = config('whatsApp.profile') .$number;
       
         $this->setRequestOptions();
 
@@ -58,9 +56,20 @@ class WhatsApp extends HttpRequest
     }
 
 
+
+    /**
+     * Validates if a user exists for a given phone number.
+     *
+     * Sends a GET request to check if the specified phone number exists
+     * in the system and returns the result.
+     *
+     * @param string $number The phone number to validate.
+     * @return mixed The response from the API indicating if the number exists.
+     */
+
     public function validateUserNumber($number) {
 
-      $url = 'exists/' .$number;
+      $url = config('whatsApp.exists') .$number;
 
       $this->setRequestOptions();
 

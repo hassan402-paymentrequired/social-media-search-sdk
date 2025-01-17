@@ -8,5 +8,5 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $instagram = new Instagram();
 
 
-$response = $instagram->searchByUserId('2222');  
+$response = $instagram->searchByUsername('stanley_nwogu_');  
 print_r($response);
