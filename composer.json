@@ -4,6 +4,9 @@
     "type": "library",
     "license": "MIT",
     "autoload": {
+        "files": [
+            "helpers/helper.php"
+        ],
         "psr-4": {
             "Eagleworld\\Search\\": "src/"
         }

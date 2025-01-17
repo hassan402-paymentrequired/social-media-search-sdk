@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'eagleworld/social-media-search',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '75fe8de6bece9d77472ac79bb25d8e8df7ec8950',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'eagleworld/social-media-search' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '75fe8de6bece9d77472ac79bb25d8e8df7ec8950',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
