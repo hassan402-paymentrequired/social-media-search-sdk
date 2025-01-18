@@ -10,7 +10,7 @@ class ComposerStaticInitfe87804dce703f12a12ea78839e7c479
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        'a91300a8f23fac582f9de8477b5ff03a' => __DIR__ . '/../..' . '/helpers/helper.php',
+        'ccb8c7a84144def5db467283541c9f5d' => __DIR__ . '/../..' . '/helpers/helper.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -27,7 +27,7 @@ class ComposerStaticInitfe87804dce703f12a12ea78839e7c479
         ),
         'E' => 
         array (
-            'Eagleworld\\Search\\' => 18,
+            'Eaglewatch\\Search\\' => 18,
         ),
     );
 
@@ -53,7 +53,7 @@ class ComposerStaticInitfe87804dce703f12a12ea78839e7c479
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
-        'Eagleworld\\Search\\' => 
+        'Eaglewatch\\Search\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

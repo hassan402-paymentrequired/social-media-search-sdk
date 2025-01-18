@@ -1,6 +1,6 @@
 <?php
 
-namespace Eagleworld\Search;
+namespace Eaglewatch\Search;
 
 class Facebook
 {
