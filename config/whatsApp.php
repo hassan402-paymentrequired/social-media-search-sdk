@@ -6,7 +6,8 @@ return [
     "x-rapidapi-host" => "waspable1.p.rapidapi.com",
     "x-rapidapi-key" => "a6f480bfa8msh5da5b8344d4c919p1a03dfjsn11c4d160c1cf",
     "api_url" => "https://waspable1.p.rapidapi.com/users/",
-    'profile' => 'profile/',
-    'exists' => 'exists/',
+    "user_profile_endpoint" => "profile/",
+    "user_exists_endpoint"  => "exists/"
+
 ];
 // https://developer.x.com/en/docs/x-api
