@@ -34,6 +34,7 @@ class Instagram extends HttpRequest
    */
   public function getUserByUsername($username)
   {
+    
       $this->setRequestOptions(); 
       
       try {
