@@ -3,25 +3,62 @@
 namespace Eagleworld\Search;
 
 use Eagleworld\Search\Abstracts\HttpRequest;
-use GuzzleHttp\Client;
+use Exception;
 
 class Twitter extends HttpRequest
 {
 
     public function __construct()
     {
-        $this->setApiUrl(config('twitter.api_url', 'https://twitter241.p.rapidapi.com/user'));
+        $this->setApiUrl(config('twitter.rapidapi_domain_url'));
         $this->additionalHeader = ['x-rapidapi-host' => config('twitter.x-rapidapi-host'), 'x-rapidapi-key' => config('twitter.x-rapidapi-key')];
     }
 
-    public function search($search)
+    /**
+     * @param string $username
+     * @return array
+     */
+    public function userNameSearch(string $search)
     {
-
         try {
 
             $this->setRequestOptions();
-            return $this->setHttpResponse("?username={$search}", 'GET', [])->getResponse();
-        } catch (\GuzzleHttp\Exception\RequestException $e) {
+            return $this->setHttpResponse("user?username={$search}", 'GET', [])->getResponse();
+        } catch (Exception $e) {
+            echo 'Request failed: ' . $e->getMessage();
+        }
+    }
+
+    /**
+     * @param string $userId
+     * @param int $count
+     * @return array
+     */
+    public function userTweetSearch(?string $userId, ?int $count = 10)
+    {
+        try {
+
+            $this->setRequestOptions();
+
+            return  $this->setHttpResponse("user-tweets?user={$userId}&count={$count}", "GET", [])->getResponse();
+        } catch (Exception $e) {
+            echo 'Request failed: ' . $e->getMessage();
+        }
+    }
+
+
+    /**
+     * @param string $userId
+     * @param int $count
+     * @return array
+     * 
+     */
+    public function userRepliesSearch(?string $userId = "2455740283", ?int $count = 10)
+    {
+        try {
+            $this->setRequestOptions();
+            return  $this->setHttpResponse("user-replies?user={$userId}&count={$count}", "GET", [])->getResponse();
+        } catch (Exception $e) {
             echo 'Request failed: ' . $e->getMessage();
         }
     }
