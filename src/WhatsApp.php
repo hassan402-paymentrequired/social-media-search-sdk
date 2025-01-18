@@ -42,7 +42,7 @@ class WhatsApp extends HttpRequest
     public function getUserProfileByNumber($number)
     {
 
-      $url = 'profile/' .$number;
+      $url = config('WhatsApp.user_profile_endpoint') .$number;
       
         $this->setRequestOptions();
 
@@ -60,7 +60,7 @@ class WhatsApp extends HttpRequest
 
     public function validateUserNumber($number) {
 
-      $url = 'exists/' .$number;
+      $url = config('whatsApp.user_exists_endpoint') .$number;
 
       $this->setRequestOptions();
 
