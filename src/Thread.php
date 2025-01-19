@@ -3,6 +3,7 @@
 namespace Eaglewatch\Search;
 
 use Eaglewatch\Search\Abstracts\HttpRequest;
+use Exception;
 
 class Thread extends HttpRequest
 {
@@ -16,6 +17,7 @@ class Thread extends HttpRequest
     /**
      * @param string username
      * @return mixed 
+     * 
      */
     public function userDetailsSearch(string $userName)
     {
@@ -24,6 +26,8 @@ class Thread extends HttpRequest
             return $this->setHttpResponse("detail?username=jlo", 'GET', [])->getResponse();
         } catch (\GuzzleHttp\Exception\RequestException $e) {
             echo 'Request failed: ' . $e->getMessage();
+        }catch(Exception $e){
+             echo 'Request failed: ' . $e->getMessage();
         }
     }
 
