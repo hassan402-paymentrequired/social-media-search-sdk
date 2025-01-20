@@ -17,5 +17,6 @@ return [
     "sessions_show-qr_endpoint"  => "sessions/otp/show-qr",
     "sessions_init_endpoint"  => "sessions/init",
     "events_endpoint"  => "events/",
+    "webhooks_endpoint"  => "webhooks/",
   
 ];

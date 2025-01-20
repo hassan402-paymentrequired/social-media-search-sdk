@@ -345,7 +345,7 @@ public function getAllEvents()
  */
   public function getEvent($eventId)
   {
-      // Assuming 'events_endpoint' is the correct endpoint for fetching events and appending the event ID
+     
       $url = config('WhatsApp.events_endpoint') .$eventId;
 
       $this->setRequestOptions();
@@ -396,5 +396,53 @@ public function getEventRetry($eventId)
 
 
 
+
+
+/**
+ * Retrieves all webhooks.
+ *
+ * This function sends a GET request to the API endpoint specified in the configuration file
+ * to fetch all webhooks. It returns the response with webhook data.
+ *
+ * @return mixed The response containing webhook data or an error message in case of failure.
+ */
+  public function getAllWebhooks()
+  {
+      $url = config('WhatsApp.webhooks_endpoint');  // Assuming you have a webhook endpoint in your config
+
+      $this->setRequestOptions();
+
+      try {
+          // Send a GET request to fetch the webhooks
+          $result = $this->setHttpResponse($url, 'GET', [])->getResponse();
+
+          return $result;
+
+      } catch (RequestException $e) {
+          echo 'Request failed: ' . $e->getMessage();
+          return false;
+      }
+  }
+
+
+
+  // public function setWebhooks()
+  // {
+    
+  // }
+
+
+// public function updateWebhooks()
+  // {
+    
+  // }
+
+
+
+  
+// public function deleteWebhooks()
+  // {
+    
+  // }
 
 }
