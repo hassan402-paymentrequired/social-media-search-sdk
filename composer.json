@@ -1,5 +1,5 @@
 {
-    "name": "eagleworld/social-media-search",
+    "name": "eaglewatch/social-media-search",
     "description": "a social media look up",
     "type": "library",
     "license": "MIT",
@@ -8,7 +8,7 @@
             "helpers/helper.php"
         ],
         "psr-4": {
-            "Eagleworld\\Search\\": "src/"
+            "Eaglewatch\\Search\\": "src/"
         }
     },
     "authors": [
@@ -18,7 +18,7 @@
         },
         {
             "name": "stanley",
-            "email": "eagleworld@eagleworld.com"
+            "email": "stanleynwogu27@gmail.com"
         }
     ],
     "require": {

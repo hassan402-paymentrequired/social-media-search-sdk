@@ -1,6 +1,6 @@
 <?php
 
-namespace Eagleworld\Search\Abstracts;
+namespace Eaglewatch\Search\Abstracts;
 
 use Exception;
 use GuzzleHttp\Client;

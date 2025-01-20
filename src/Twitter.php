@@ -1,9 +1,8 @@
 <?php
 
-namespace Eagleworld\Search;
+namespace Eaglewatch\Search;
 
-use Eagleworld\Search\Abstracts\HttpRequest;
-use GuzzleHttp\Client;
+use Eaglewatch\Search\Abstracts\HttpRequest;
 
 class Twitter extends HttpRequest
 {
