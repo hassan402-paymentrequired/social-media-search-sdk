@@ -6,6 +6,6 @@ use Eaglewatch\Search\Tictok;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$response = (new Thread())->userNameSearch('hassan');
+$response = (new Facebook())->search('hassan');
 
 print_r($response);
