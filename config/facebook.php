@@ -10,8 +10,11 @@ return [
     "page_details_endpoint" => "/event/details_id",
     'page_events_future' => '/page/events/future',
     'page_details' => '/page/details',
+    'page_reels' => '/page/reels',
     'profile_details_id' => '/profile/details_id',
     'post_details' =>  '/post',
-    'post_share' =>  '/post/share'
+    'post_share' =>  '/post/share',
+    'search_locations' => '/search/locations',
+    'search_videos' => '/search/videos',
 
 ];

@@ -149,29 +149,24 @@ class Facebook extends HttpRequest
      *
      * @throws RequestException|Exception If the request fails
      */
-    public function getPageReels($pageId)
+    public function getPageReelsById($pageId)
     {
-        try {
-            // Make the GET request to the Facebook Scraper API for page reels
-            $response = $this->client->request('GET', 'https://facebook-scraper3.p.rapidapi.com/page/reels', [
-                'query' => [
-                    'page_id' => $pageId, // The Facebook page ID
-                ],
-                'headers' => [
-                    'x-rapidapi-host' => 'facebook-scraper3.p.rapidapi.com',
-                    'x-rapidapi-key' => 'a6f480bfa8msh5da5b8344d4c919p1a03dfjsn11c4d160c1cf', // RapidAPI key
-                ]
-            ]);
-
-            // Return the decoded response body as an array
-            return json_decode($response->getBody()->getContents(), true);
-        } catch (RequestException $e) {
-            // Handle request errors
-            echo 'Request failed: ' . $e->getMessage();
-            return null;
-        }
+       
         
-    }
+            $url = config('facebook.page_reels') .'?page_id=' . $pageId;
+
+
+            try {
+                $result = $this->setHttpResponse($url, 'GET', [])->getResponse();
+    
+        
+                return $result;
+            } catch (Exception $e) {
+                echo 'Request failed: ' . $e->getMessage();
+            } return null;
+        }
+     
+    
 
 
 
@@ -187,25 +182,17 @@ class Facebook extends HttpRequest
      */
     public function getFuturePageEvents($pageId)
     {
-        try {
-            // Send the GET request to the Facebook Scraper API to get future events
-            $response = $this->client->request('GET', 'https://facebook-scraper3.p.rapidapi.com/page/events/future', [
-                'query' => [
-                    'page_id' => $pageId, // The Facebook page ID
-                ],
-                'headers' => [
-                    'x-rapidapi-host' => 'facebook-scraper3.p.rapidapi.com',
-                    'x-rapidapi-key' => 'a6f480bfa8msh5da5b8344d4c919p1a03dfjsn11c4d160c1cf', // RapidAPI key
-                ]
-            ]);
+        $url = config('facebook.page_events_future') .'?page_id=' . $pageId;
 
-            // Decode the response body to return as an array
-            return json_decode($response->getBody()->getContents(), true);
-        } catch (RequestException $e) {
-            // Handle the error if the request fails
+
+        try {
+            $result = $this->setHttpResponse($url, 'GET', [])->getResponse();
+
+    
+            return $result;
+        } catch (Exception $e) {
             echo 'Request failed: ' . $e->getMessage();
-            return null;
-        }
+        } return null;
     }
 
 
@@ -218,28 +205,19 @@ class Facebook extends HttpRequest
      *
      * @throws RequestException|Exception If the request fails.
      */
-    public function searchLocations($query)
-    {
-        try {
-            // Send the GET request to the Facebook Scraper API to search locations
-            $response = $this->client->request('GET', 'https://facebook-scraper3.p.rapidapi.com/search/locations', [
-                'query' => [
-                    'query' => $query, // The search query parameter
-                ],
-                'headers' => [
-                    'x-rapidapi-host' => 'facebook-scraper3.p.rapidapi.com',
-                    'x-rapidapi-key' => 'a6f480bfa8msh5da5b8344d4c919p1a03dfjsn11c4d160c1cf', // RapidAPI key
-                ]
-            ]);
+    // public function searchLocations($query)
+    // {
+    //     $url = config('facebook.search_locations');
 
-            // Decode and return the response body
-            return json_decode($response->getBody()->getContents(), true);
-        } catch (RequestException $e) {
-            // Handle the error if the request fails
-            echo 'Request failed: ' . $e->getMessage();
-            return null;
-        }
-    }
+
+    //     try {
+    //         $result = $this->setHttpResponse($url, 'GET',  ['query' => $query])->getResponse();
+
+    //         return $result;
+    //     } catch (Exception $e) {
+    //         echo 'Request failed: ' . $e->getMessage();
+    //     } return null;
+    // }
 
 
 
@@ -254,24 +232,19 @@ class Facebook extends HttpRequest
      */
     public function searchVideos($query)
     {
-        try {
-            // Send the GET request to the API
-            $response = $this->client->request('GET', 'https://facebook-scraper3.p.rapidapi.com/search/videos', [
-                'query' => ['query' => $query], // The query parameter (search term)
-                'headers' => [
-                    'x-rapidapi-host' => 'facebook-scraper3.p.rapidapi.com',
-                    'x-rapidapi-key' => 'a6f480bfa8msh5da5b8344d4c919p1a03dfjsn11c4d160c1cf', // Your RapidAPI key
-                ],
-            ]);
+        $url = config('facebook.search_videos') .'?query=' . $query;
 
-            // Return the response body as an array
-            return json_decode($response->getBody()->getContents(), true);
-        } catch (RequestException $e) {
-            // Handle errors if the request fails
+
+        try {
+            $result = $this->setHttpResponse($url, 'GET', [])->getResponse();
+
+    
+            return $result;
+        } catch (Exception $e) {
             echo 'Request failed: ' . $e->getMessage();
-            return null;
-        }
+        } return null;
     }
+
 
 
 
