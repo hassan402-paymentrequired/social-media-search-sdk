@@ -21,6 +21,9 @@ class Instagram extends HttpRequest
           'x-rapidapi-host' => config('instagram.x-rapidapi-host', ''),
           'x-rapidapi-key' => config('instagram.x-rapidapi-key')
       ];
+
+      $this->setRequestOptions(); 
+
   }
 
   /**
@@ -35,7 +38,6 @@ class Instagram extends HttpRequest
   public function getUserByUsername($username)
   {
     
-      $this->setRequestOptions(); 
       
       try {
           $result = $this->setHttpResponse(config('instagram.user_info_endpoint'),'POST', ["username" => $username])->getResponse();
@@ -56,7 +58,6 @@ class Instagram extends HttpRequest
    */
   public function getUserById($id)
   {
-      $this->setRequestOptions();
 
       try {
           $result = $this->setHttpResponse(config("instagram.user_info_by_id_endpoint"), 'POST', ["id" => $id])->getResponse();
@@ -75,7 +76,6 @@ class Instagram extends HttpRequest
    */
   public function getUserTagsById($id)
   {
-      $this->setRequestOptions();
 
       try {
           $result = $this->setHttpResponse(config("instagram.user_tags_endpoint"), 'POST', ["id" => $id])->getResponse();
@@ -94,7 +94,6 @@ class Instagram extends HttpRequest
    */
   public function getUserMediaInfoById($id)
   {
-      $this->setRequestOptions();
 
       try {
           $result = $this->setHttpResponse(config("instagram.user_media_endpoint"), 'POST', ["id" => $id])->getResponse();
@@ -116,7 +115,6 @@ class Instagram extends HttpRequest
      */
     public function getUserSimilarAccountsById($id)
     {
-        $this->setRequestOptions();
 
         try {
             $result = $this->setHttpResponse(config("instagram.user_similar_accounts_endpoint"), 'POST', ["id" => $id])->getResponse();
@@ -138,7 +136,6 @@ class Instagram extends HttpRequest
      */
     public function getUserFollowersById($id)
     {
-        $this->setRequestOptions();
 
         try {
             $result = $this->setHttpResponse(config("instagram.user_followers_endpoint"), 'POST', ["id" => $id])->getResponse();
@@ -157,7 +154,6 @@ class Instagram extends HttpRequest
      */
     public function getUserFollowingById($id)
     {
-        $this->setRequestOptions();
 
         try {
             $result = $this->setHttpResponse(config("instagram.user_following_endpoint"), 'POST', ["id" => $id])->getResponse();
@@ -177,7 +173,6 @@ class Instagram extends HttpRequest
     public function getUserStoriesByIds($ids)
     {
 
-        $this->setRequestOptions();
             
        if (!is_array($ids)) {
               throw new Exception("The 'ids' field must be an array.");
@@ -201,7 +196,6 @@ class Instagram extends HttpRequest
      */
     public function getUserGuidesById($id)
     {
-        $this->setRequestOptions();
 
         try {
             $result = $this->setHttpResponse(config("instagram.user_guides_endpoint"), 'POST', ["id" => $id])->getResponse();
@@ -221,7 +215,6 @@ class Instagram extends HttpRequest
  */
   public function getUserHighlightsById($id)
   {
-      $this->setRequestOptions();
 
       try {
           $result = $this->setHttpResponse(config("instagram.user_highlights_endpoint"), 'POST', ["id" => $id])->getResponse();
@@ -242,7 +235,6 @@ class Instagram extends HttpRequest
  */
   public function getUserClipsById($id)
   {
-      $this->setRequestOptions();
 
       try {
           $result = $this->setHttpResponse(config("instagram.user_clips_endpoint"), 'POST', ["id" => $id])->getResponse();
@@ -262,7 +254,6 @@ class Instagram extends HttpRequest
  */
     public function getUserLiveById($id)
     {
-        $this->setRequestOptions();
 
         try {
             $result = $this->setHttpResponse(config("instagram.user_live_endpoint"), 'POST', ["id" => $id])->getResponse();
@@ -281,7 +272,6 @@ class Instagram extends HttpRequest
  */
     public function searchUserByQuery($query)
     {
-        $this->setRequestOptions();
 
         try {
             // Assuming there's a specific endpoint for user search
@@ -304,7 +294,6 @@ class Instagram extends HttpRequest
      */
       public function getMediaInfoById($id)
       {
-          $this->setRequestOptions();
 
           try {
               $result = $this->setHttpResponse(config("instagram.media_info_endpoint"), 'POST', ["id" => $id])->getResponse();
@@ -326,7 +315,6 @@ class Instagram extends HttpRequest
 
       public function getMediaInfoByShortcode($shortcode)
       {
-          $this->setRequestOptions();
 
           try {
               $result = $this->setHttpResponse(config("instagram.media_info_by_shortcode_endpoint"), 'POST', ["shortcode" => $shortcode])->getResponse();
@@ -345,7 +333,6 @@ class Instagram extends HttpRequest
      */
       public function getMediaLikesByShortcode($shortcode)
       {
-          $this->setRequestOptions();
 
           try {
               $result = $this->setHttpResponse(config("instagram.media_likes_by_shortcode_endpoint"), 'POST', ["shortcode" => $shortcode])->getResponse();
@@ -364,7 +351,6 @@ class Instagram extends HttpRequest
      */
       public function getMediaCommentsBySId($Id)
       {
-          $this->setRequestOptions();
 
           try {
               $result = $this->setHttpResponse(config("instagram.media_comments_by_id_endpoint"), 'POST', ["id" => $Id])->getResponse();
@@ -384,7 +370,6 @@ class Instagram extends HttpRequest
  */
   public function getMediaShortcodeById($id)
   {
-      $this->setRequestOptions();
 
       try {
           // Assuming there's a specific endpoint to get media shortcode by ID
@@ -406,7 +391,6 @@ class Instagram extends HttpRequest
  */
   public function getMediaIdByShortcode($shortcode)
   {
-      $this->setRequestOptions();
 
       try {
           // Assuming there's a specific endpoint to get media ID by shortcode
@@ -431,7 +415,6 @@ class Instagram extends HttpRequest
      */
     public function getLocationInfoById($id)
     {
-        $this->setRequestOptions();
 
         try {
             $result = $this->setHttpResponse(config("instagram.location_info_endpoint"), 'POST', ["id" => $id])->getResponse();
@@ -450,7 +433,6 @@ class Instagram extends HttpRequest
      */
     public function getLocationMediaById($id)
     {
-        $this->setRequestOptions();
 
         try {
             $result = $this->setHttpResponse(config("instagram.location_media_endpoint"), 'POST', ["id" => $id])->getResponse();
@@ -470,7 +452,6 @@ class Instagram extends HttpRequest
  */
     public function searchLocationByQuery($query)
     {
-        $this->setRequestOptions();
 
         try {
             // Assuming there's a specific endpoint for searching by location
@@ -494,7 +475,6 @@ class Instagram extends HttpRequest
   */
   public function getHashtagInfoByHashtag($hashtag)
   {
-      $this->setRequestOptions();
 
       try {
    
@@ -509,7 +489,6 @@ class Instagram extends HttpRequest
   
   public function getHashtagMediaByHashtag($hashtag)
   {
-      $this->setRequestOptions();
 
       try {
           
@@ -532,7 +511,6 @@ class Instagram extends HttpRequest
   */
   public function searchHashtagByQuery($query)
   {
-      $this->setRequestOptions();
 
       try {
           
@@ -557,7 +535,6 @@ class Instagram extends HttpRequest
  */
   public function getHighlightStoriesByIds($ids)
   {
-      $this->setRequestOptions();
 
       if (!is_array($ids)) {
           throw new Exception("The 'ids' field must be an array.");
@@ -582,7 +559,6 @@ class Instagram extends HttpRequest
  */
   public function getCommentLikesById($id)
   {
-      $this->setRequestOptions();
 
       try {
           // Assuming there's a specific endpoint for fetching comment likes by comment ID
@@ -603,7 +579,6 @@ class Instagram extends HttpRequest
  */
   public function getAudioMediaById($id)
   {
-      $this->setRequestOptions();
 
       try {
           // Assuming there's a specific endpoint for fetching audio media by media ID
@@ -625,7 +600,6 @@ class Instagram extends HttpRequest
   */
   public function searchAudiosByQuery($query)
   {
-      $this->setRequestOptions();
 
       try {
       

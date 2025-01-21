@@ -25,6 +25,8 @@ class WhatsApp extends HttpRequest
               'x-rapidapi-host' => config('whatsApp.x-rapidapi-host', ''),
               'x-rapidapi-key'  => config('whatsApp.x-rapidapi-key')
           ];
+        $this->setRequestOptions();
+
       
 
      }
@@ -43,7 +45,6 @@ class WhatsApp extends HttpRequest
 
       $url = config('WhatsApp.user_profile_endpoint') .$number;
 
-        $this->setRequestOptions();
 
         try {
           $result = $this->setHttpResponse($url, 'GET', [])->getResponse();
@@ -73,7 +74,6 @@ class WhatsApp extends HttpRequest
 
       $url = config('whatsApp.user_exists_endpoint') .$number;
 
-      $this->setRequestOptions();
 
       try {
         $result = $this->setHttpResponse( $url, 'GET', [])->getResponse();
@@ -105,7 +105,6 @@ class WhatsApp extends HttpRequest
         $url = config('whatsApp.user_profile_picture_endpoint') . $number; 
     
         // Set request options
-        $this->setRequestOptions();
     
         try {
           $result = $this->setHttpResponse( $url, 'GET', [])->getResponse();
@@ -132,7 +131,6 @@ class WhatsApp extends HttpRequest
   {
       $url = config('whatsApp.messages_endpoint') ;
       
-      $this->setRequestOptions();
 
       try {
           // Send DELETE request
@@ -166,7 +164,6 @@ class WhatsApp extends HttpRequest
       $url = config('whatsApp.send_messages_endpoint');
 
        
-      $this->setRequestOptions();
 
       try {
         $result = $this->setHttpResponse( $url, 'POST', 
@@ -204,7 +201,6 @@ class WhatsApp extends HttpRequest
 
       $url = config('WhatsApp.sessions_show-qr_endpoint');
 
-      $this->setRequestOptions();
 
       try {
           $result = $this->setHttpResponse($url, 'GET', [])->getResponse();
@@ -233,7 +229,6 @@ class WhatsApp extends HttpRequest
 
         $url = config('WhatsApp.sessions_endpoint');
 
-        $this->setRequestOptions();
 
         try {
 
@@ -259,7 +254,6 @@ class WhatsApp extends HttpRequest
   public function deleteOtpSession()
   {
       $url = config('WhatsApp.sessions_otp_endpoint');
-      $this->setRequestOptions();
 
       try {
           $result = $this->setHttpResponse($url, 'DELETE', [])->getResponse();
@@ -318,7 +312,6 @@ public function getAllEvents()
     
     $url = config('WhatsApp.events_endpoint'); 
 
-    $this->setRequestOptions();
 
     try {
 
@@ -348,7 +341,6 @@ public function getAllEvents()
      
       $url = config('WhatsApp.events_endpoint') .$eventId;
 
-      $this->setRequestOptions();
 
       try {
 
@@ -379,7 +371,6 @@ public function getEventRetry($eventId)
     $url = config('WhatsApp.events_endpoint') . $eventId . '/retry';
 
    
-    $this->setRequestOptions();
 
     try {
        
@@ -410,7 +401,6 @@ public function getEventRetry($eventId)
   {
       $url = config('WhatsApp.webhooks_endpoint');  // Assuming you have a webhook endpoint in your config
 
-      $this->setRequestOptions();
 
       try {
           // Send a GET request to fetch the webhooks
