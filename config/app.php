@@ -87,6 +87,12 @@ return [
         "api_url" => "https://waspable1.p.rapidapi.com/users/",
         "user_profile_endpoint" => "profile/",
         "user_exists_endpoint"  => "exists/"
+    ],
+
+    "snapchat" => [
+        "x-rapidapi-host" => "snapchat3.p.rapidapi.com",
+        "x-rapidapi-key" => "99cfd4d7e2msh3494d671ee2889dp1fe566jsna33a3ffa1a1f",
+        "domain_url" => "https://snapchat3.p.rapidapi.com"
     ]
 
 
