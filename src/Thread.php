@@ -12,6 +12,8 @@ class Thread extends HttpRequest
     {
         $this->setApiUrl(config('thread.domain_url'));
         $this->additionalHeader = ['x-rapidapi-host' => config('thread.x-rapidapi-host'), 'x-rapidapi-key' => config('thread.x-rapidapi-key')];
+        $this->setRequestOptions();
+
     }
 
     /**
@@ -22,7 +24,6 @@ class Thread extends HttpRequest
     public function userDetailsSearch(string $userName)
     {
         try {
-            $this->setRequestOptions();
             return $this->setHttpResponse("detail?username=jlo", 'GET', [])->getResponse();
         } catch (\GuzzleHttp\Exception\RequestException $e) {
             echo 'Request failed: ' . $e->getMessage();
@@ -40,7 +41,6 @@ class Thread extends HttpRequest
     public function userNameSearch(string $userName)
     {
         try {
-            $this->setRequestOptions();
             return $this->setHttpResponse("search?query=jlo", 'GET', [])->getResponse();
         } catch (\GuzzleHttp\Exception\RequestException $e) {
             echo 'Request failed: ' . $e->getMessage();
@@ -56,7 +56,6 @@ class Thread extends HttpRequest
     public function userPostSearch(string $userName)
     {
         try {
-            $this->setRequestOptions();
             return $this->setHttpResponse("posts?username={$userName}", 'GET', [])->getResponse();
         } catch (\GuzzleHttp\Exception\RequestException $e) {
             echo 'Request failed: ' . $e->getMessage();
@@ -73,7 +72,6 @@ class Thread extends HttpRequest
     public function userDetailsWithBioLink(string $userName)
     {
         try {
-            $this->setRequestOptions();
             return $this->setHttpResponse("detail-with-biolink?username={$userName}", 'GET', [])->getResponse();
         } catch (\GuzzleHttp\Exception\RequestException $e) {
             echo 'Request failed: ' . $e->getMessage();

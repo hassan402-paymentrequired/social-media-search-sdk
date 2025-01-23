@@ -8,6 +8,7 @@ use Eaglewatch\Search\Tictok;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$response = (new LinkedIn())->searchUsers('hassan');
+$response = (new Facebook())->searchVideos('spain');
+
 
 print_r($response);
