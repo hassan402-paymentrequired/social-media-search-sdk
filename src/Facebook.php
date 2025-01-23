@@ -69,6 +69,7 @@ class Facebook extends HttpRequest
     public function getPostShareCount($postId)
     {
 
+
         $url = config('facebook.post_share') .'?post_id=' . $postId;
 
 
@@ -83,6 +84,8 @@ class Facebook extends HttpRequest
         }
 
 
+
+        return 'searching for ' . $search . ' on Facebook with the config ' . config('app.facebook.api_url');
     }
 
 

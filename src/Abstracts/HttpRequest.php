@@ -4,8 +4,6 @@ namespace Eaglewatch\Search\Abstracts;
 
 use Exception;
 use GuzzleHttp\Client;
-use Illuminate\Http\Client\Response;
-use GuzzleHttp\Promise\PromiseInterface;
 
 
 abstract class HttpRequest
