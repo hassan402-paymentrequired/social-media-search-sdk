@@ -10,10 +10,9 @@ class Thread extends HttpRequest
 
     public function __construct()
     {
-        $this->setApiUrl(config('thread.domain_url'));
-        $this->additionalHeader = ['x-rapidapi-host' => config('thread.x-rapidapi-host'), 'x-rapidapi-key' => config('thread.x-rapidapi-key')];
+        $this->setApiUrl(config('app.thread.domain_url'));
+        $this->additionalHeader = ['x-rapidapi-host' => config('app.thread.x-rapidapi-host'), 'x-rapidapi-key' => config('app.thread.x-rapidapi-key')];
         $this->setRequestOptions();
-
     }
 
     /**
@@ -21,14 +20,12 @@ class Thread extends HttpRequest
      * @return mixed 
      * 
      */
-    public function userDetailsSearch(string $userName)
+    public function userDetailsSearch(string $username)
     {
         try {
-            return $this->setHttpResponse("detail?username=jlo", 'GET', [])->getResponse();
-        } catch (\GuzzleHttp\Exception\RequestException $e) {
-            echo 'Request failed: ' . $e->getMessage();
-        }catch(Exception $e){
-             echo 'Request failed: ' . $e->getMessage();
+            return $this->setHttpResponse("detail?username={$username}", 'GET', [])->getResponse();
+        } catch (Exception $e) {
+            throw new Exception("Error Processing Request" . $e->getMessage());
         }
     }
 
@@ -38,12 +35,12 @@ class Thread extends HttpRequest
      * @return mixed
      * search all the users associated with that name
      */
-    public function userNameSearch(string $userName)
+    public function userNameSearch(string $username)
     {
         try {
-            return $this->setHttpResponse("search?query=jlo", 'GET', [])->getResponse();
-        } catch (\GuzzleHttp\Exception\RequestException $e) {
-            echo 'Request failed: ' . $e->getMessage();
+            return $this->setHttpResponse("search?query={$username}", 'GET', [])->getResponse();
+        } catch (Exception $e) {
+            throw new Exception("Error Processing Request" . $e->getMessage());
         }
     }
 
@@ -57,8 +54,8 @@ class Thread extends HttpRequest
     {
         try {
             return $this->setHttpResponse("posts?username={$userName}", 'GET', [])->getResponse();
-        } catch (\GuzzleHttp\Exception\RequestException $e) {
-            echo 'Request failed: ' . $e->getMessage();
+        } catch (Exception $e) {
+            throw new Exception("Error Processing Request" . $e->getMessage());
         }
     }
 
@@ -73,8 +70,8 @@ class Thread extends HttpRequest
     {
         try {
             return $this->setHttpResponse("detail-with-biolink?username={$userName}", 'GET', [])->getResponse();
-        } catch (\GuzzleHttp\Exception\RequestException $e) {
-            echo 'Request failed: ' . $e->getMessage();
+        } catch (Exception $e) {
+            throw new Exception("Error Processing Request" . $e->getMessage());
         }
     }
 }

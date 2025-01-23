@@ -41,7 +41,7 @@ class LinkedIn extends HttpRequest
      * @param string poatedAt (2024-01-01 00:00)
      * @param strng $start -> use this param to get posts in next results page: 0 for page 1, 50 for page 2 100 for page 3, etc
      */
-    public function searchUserProfileProfilePost($username, ?string  $poatedAt = '')
+    public function searchUserProfileProfilePost($username,  $poatedAt = '')
     {
         try {
             return $this->setHttpResponse("/get-profile-posts?username={$username}&postedAt={$poatedAt}", 'GET', [])->getResponse();

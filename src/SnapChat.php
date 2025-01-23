@@ -4,6 +4,7 @@
 namespace Eaglewatch\Search;
 
 use Eaglewatch\Search\Abstracts\HttpRequest;
+use Exception;
 
 class SnapChat extends HttpRequest
 {
@@ -23,12 +24,12 @@ class SnapChat extends HttpRequest
      * @param string $username
      * @return mixed $response
      */
-    public function searchUserProfile($username)
+    public function searchUserProfile(string $username)
     {
         try {
             return $this->setHttpResponse("/getProfile?username={$username}", 'GET', [])->getResponse();
-        } catch (\GuzzleHttp\Exception\RequestException $e) {
-            return 'Request failed: ' . $e->getMessage();
+        } catch (Exception $e) {
+            throw new Exception("Error Processing Request" . $e->getMessage());
         }
     }
 
@@ -36,12 +37,12 @@ class SnapChat extends HttpRequest
      * @param string $username
      * @return mixed $response
      */
-    public function searchUserLenses($username)
+    public function searchUserLenses(string $username)
     {
         try {
             return $this->setHttpResponse("/getUserLenses?username={$username}", 'GET', [])->getResponse();
-        } catch (\GuzzleHttp\Exception\RequestException $e) {
-            return 'Request failed: ' . $e->getMessage();
+        } catch (Exception $e) {
+            throw new Exception("Error Processing Request" . $e->getMessage());
         }
     }
 
@@ -50,12 +51,12 @@ class SnapChat extends HttpRequest
      * @param string $username
      * @return mixed $response
      */
-    public function searchUserStory($username)
+    public function searchUserStory(string $username)
     {
         try {
             return $this->setHttpResponse("/getUserStory?username={$username}", 'GET', [])->getResponse();
-        } catch (\GuzzleHttp\Exception\RequestException $e) {
-            return 'Request failed: ' . $e->getMessage();
+        } catch (Exception $e) {
+            throw new Exception("Error Processing Request" . $e->getMessage());
         }
     }
 
@@ -63,12 +64,12 @@ class SnapChat extends HttpRequest
      * @param string $username
      * @return mixed $response
      */
-    public function searchUserSpotlightHighlights($username)
+    public function searchUserSpotlightHighlights(string $username)
     {
         try {
             return $this->setHttpResponse("/getUserSpotlightHighlights?username={$username}", 'GET', [])->getResponse();
-        } catch (\GuzzleHttp\Exception\RequestException $e) {
-            return 'Request failed: ' . $e->getMessage();
+        } catch (Exception $e) {
+            throw new Exception("Error Processing Request" . $e->getMessage());
         }
     }
 }

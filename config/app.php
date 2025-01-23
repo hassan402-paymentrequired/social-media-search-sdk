@@ -78,7 +78,7 @@ return [
         "domain_url" => "https://api.x.com/2/",
     ],
 
-    "whatsapp" => [
+    "whatsApp" => [
         "bearer" => "AAAAAAAAAAAAAAAAAAAAALP1yAEAAAAAPqqB3c8vN1kQZbFLVYn7usWee54%3DYosNXx995ldmE4VJpBmCXgUoPDV2557zES3S14eQY4NjR3V2Kq",
         "access_token" => "1561687051006869508-yGKTsTc8mGxDMT30MILA8wVKAYPFo0",
         "access_secret_token" => "19IXm2P8ULwIP2eAyOV5HXzuutETN7gRLgcdFuQYE4mZF",
