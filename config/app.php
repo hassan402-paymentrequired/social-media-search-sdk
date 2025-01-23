@@ -93,6 +93,12 @@ return [
         "x-rapidapi-host" => "snapchat3.p.rapidapi.com",
         "x-rapidapi-key" => "99cfd4d7e2msh3494d671ee2889dp1fe566jsna33a3ffa1a1f",
         "domain_url" => "https://snapchat3.p.rapidapi.com"
+    ],
+
+    "linkedin" => [
+        "x-rapidapi-host" => "linkedin-data-api.p.rapidapi.com",
+        "x-rapidapi-key" => "99cfd4d7e2msh3494d671ee2889dp1fe566jsna33a3ffa1a1f",
+        "domain_url" => "https://linkedin-data-api.p.rapidapi.com"
     ]
 
 
